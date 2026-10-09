@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>КреоСтудия — сайты, тексты, дизайн и фотосессии</title>
+<meta name="description" content="КреоСтудия — творческая студия: сайты, статьи, презентации, посты и картинки для соцсетей, логотипы, иллюстрации и нейрофотосессии. Работаем по всей России, онлайн.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="КреоСтудия">
+<meta property="og:title" content="КреоСтудия — создаём контент, который работает на вас">
+<meta property="og:description" content="Сайты, статьи, презентации, посты и картинки для соцсетей, логотипы, иллюстрации и фотосессии — всё в одном месте.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/logo-icon.png">
+<link rel="stylesheet" href="vibe.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"КреоСтудия","description":"Творческая студия: сайты, статьи, презентации, контент для соцсетей, логотипы, иллюстрации и нейрофотосессии.","email":"vasenkin.a@yandex.ru","telephone":"+7 917 282-26-48","areaServed":"Россия"}
+</script>
+<style>
+  /* ---- тема: светлая «лаванда», фирменный градиент фиолетовый → фуксия ---- */
+  .v-page {
+    --v-canvas: #faf8ff; --v-surface: #ffffff;
+    --v-ink: #1a1530; --v-ink-soft: #5b5670;        /* 7,4:1 на холсте */
+    --v-accent: #6d28d9; --v-accent-ink: #ffffff;   /* 7,1:1 на холсте; белый на кнопке 7,1:1 */
+    --v-accent-2: #a21caf;                          /* конец градиента, белый на нём 6,3:1 */
+    --grad: linear-gradient(120deg, var(--v-accent), var(--v-accent-2));
+    --v-font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+    --v-font-text: "Manrope", "Segoe UI", system-ui, sans-serif;
+    --v-shadow-color: 60 30 120;
+    --v-e1: 0 1px 2px rgb(var(--v-shadow-color) / .06), 0 10px 28px rgb(var(--v-shadow-color) / .08);
+    --v-e2: 0 2px 6px rgb(var(--v-shadow-color) / .08), 0 26px 64px rgb(var(--v-shadow-color) / .16);
+    --v-edge: inset 0 1px 0 rgb(255 255 255 / .8);
+    --v-radius: 20px;
+    --v-section: clamp(3.5rem, 8vw, 7rem);
+    --v-display-weight: 600;
+    --v-track-tight: -0.02em;
+  }
+  html, body { background: #faf8ff; }
+  .v-page [id] { scroll-margin-top: 5rem; }
+  .v-page .v-btn { font-size: var(--v-t-base); }
+  .v-page a.v-btn:not(.v-btn--ghost), .v-page button.v-btn { background: var(--grad); color: #fff; }
+  .v-page a.v-btn--ghost { background: var(--v-surface); }
+  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eyebrow { display: inline-block; font-size: var(--v-t-xs); font-weight: 700; letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-accent); }
+  .pill { display: inline-flex; align-items: center; gap: .5em; padding: .4em 1em; border-radius: 999px; background: #efe7ff; color: var(--v-accent); font-size: var(--v-t-sm); font-weight: 600; }
+  .pill i { width: .5em; height: .5em; border-radius: 50%; background: var(--grad); }
+
+  /* ---- логотип ---- */
+  .logo { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; min-height: 44px; font-family: var(--v-font-display); font-weight: 600; font-size: 1.15rem; letter-spacing: -.01em; color: var(--v-ink); }
+  .logo svg { width: 38px; height: 38px; flex: none; filter: drop-shadow(0 6px 14px rgb(109 40 217 / .28)); transition: transform .4s var(--v-ease-out); }
+  .logo:hover svg { transform: rotate(-8deg) scale(1.05); }
+.logo img { display: block; height: 46px; width: auto; }
+
+  /* ---- шапка ---- */
+  .bar { position: fixed; inset: 0 0 auto 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: var(--v-4); padding: var(--v-3) var(--v-gutter);
+    transition: background-color .3s var(--v-ease-out), box-shadow .3s var(--v-ease-out); }
+  .bar.is-scrolled { background: rgb(250 248 255 / .88); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--v-hair); }
+  .bar nav { display: flex; align-items: center; gap: var(--v-6); }
+  .bar nav a:not(.v-btn) { text-decoration: none; font-size: var(--v-t-sm); font-weight: 500; color: var(--v-ink-soft); min-height: 44px; display: inline-flex; align-items: center; }
+  .bar nav a:not(.v-btn):hover { color: var(--v-accent); }
+  @media (max-width: 900px) { .bar nav a:not(.v-btn) { display: none; } }
+  @media (max-width: 600px) { .bar .v-btn { padding: 0 1.1em; min-height: 44px; font-size: .9rem; } }
+
+  /* ---- 1. первый экран ---- */
+  .hero { position: relative; overflow: hidden; padding: clamp(7rem, 16vh, 10rem) 0 var(--v-8); }
+  .hero::before { content: ""; position: absolute; inset: -20% -10% auto auto; width: 60rem; height: 60rem; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(closest-side, rgb(192 38 211 / .12), rgb(109 40 217 / .08) 45%, transparent 70%); }
+  .hero::after { content: ""; position: absolute; left: -15rem; top: 30%; width: 40rem; height: 40rem; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(closest-side, rgb(109 40 217 / .07), transparent 70%); }
+  .hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: var(--v-8); align-items: center; }
+  .hero h1 { font-size: clamp(2.3rem, 1rem + 3.6vw, 4.3rem); line-height: 1.04; margin-top: var(--v-5); }
+  .hero .v-lede { margin-top: var(--v-5); color: var(--v-ink-soft); max-width: 40ch; font-size: var(--v-t-lg); }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: var(--v-3) var(--v-4); margin-top: var(--v-6); }
+  .stats { display: flex; flex-wrap: wrap; gap: var(--v-4) var(--v-8); margin-top: var(--v-7); }
+  .stats b { display: block; font-family: var(--v-font-display); font-size: var(--v-t-2xl); line-height: 1; font-weight: 600; }
+  .stats > div > span { display: block; margin-top: .4rem; font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 12ch; }
+  .hero__pic { position: relative; }
+  .hero__pic figure { border-radius: calc(var(--v-radius) + 8px); overflow: hidden; box-shadow: var(--v-e2); aspect-ratio: 16 / 11; background: #efe7ff; transform: rotate(1.5deg); }
+  .hero__pic img { width: 100%; height: 100%; object-fit: cover; }
+  .chip { position: absolute; left: -1.5rem; bottom: -1.5rem; display: flex; align-items: center; gap: .8rem; padding: .9rem 1.2rem; border-radius: 16px; background: var(--v-surface); box-shadow: var(--v-e2); }
+  .chip i { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--grad); display: grid; place-items: center; color: #fff; font-style: normal; font-size: 1.1rem; }
+  .chip b { display: block; font-size: var(--v-t-sm); }
+  .chip span { font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .chip2 { position: absolute; right: -1rem; top: -1.2rem; padding: .6rem 1rem; border-radius: 999px; background: var(--v-surface); box-shadow: var(--v-e1); font-size: var(--v-t-xs); font-weight: 700; color: var(--v-accent); }
+  @media (max-width: 900px) {
+    .hero { padding-top: 6.5rem; }
+    .hero__grid { grid-template-columns: 1fr; gap: var(--v-7); }
+    .hero__pic { margin: 0 .75rem; }
+    .chip { left: -.5rem; }
+    .chip2 { right: -.5rem; }
+    .stats { gap: var(--v-4) var(--v-6); }
+  }
+
+  /* ---- заголовки секций ---- */
+  .sec-head { text-align: center; max-width: 46rem; margin: 0 auto var(--v-7); }
+  .sec-head h2 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3.2rem); margin-top: var(--v-3); }
+  .sec-head p { margin-top: var(--v-4); color: var(--v-ink-soft); }
+
+  /* ---- 2. услуги ---- */
+  .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--v-5); }
+  .svc { background: var(--v-surface); border-radius: var(--v-radius); overflow: hidden; box-shadow: var(--v-e1), var(--v-edge); display: flex; flex-direction: column; transition: transform .35s var(--v-ease-out), box-shadow .35s var(--v-ease-out); }
+  .svc:hover { transform: translateY(-6px); box-shadow: var(--v-e2); }
+  .svc figure { aspect-ratio: 4 / 3; overflow: hidden; background: #efe7ff; }
+  .svc img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--v-ease-out); }
+  .svc:hover img { transform: scale(1.06); }
+  .svc div { padding: var(--v-5); }
+  .svc h3 { font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-base); line-height: 1.2; letter-spacing: -.01em; }
+  .svc p { margin-top: var(--v-2); color: var(--v-ink-soft); font-size: var(--v-t-sm); }
+  @media (max-width: 1100px) { .services { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .services { grid-template-columns: 1fr; } }
+
+  /* ---- 3. как рождается проект: веер карточек по прокрутке (фирменный ход) ---- */
+  .sb { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; column-gap: var(--v-8); height: 100%; max-width: 84rem; margin: 0 auto;
+    padding: clamp(5rem, 12vh, 7rem) var(--v-gutter) clamp(2.5rem, 8vh, 5rem); }
+  .sb__head { grid-column: 1; max-width: 34rem; }
+  .sb__head h2 { font-size: clamp(1.8rem, 1.1rem + 2.2vw, 3rem); margin-top: var(--v-3); }
+  .sb__rep { grid-column: 1; grid-row: 2; position: relative; align-self: center; min-height: 12rem; }
+  .sb__rep > div { position: absolute; left: 0; top: 0; max-width: 32rem; }
+  .sb__step { display: inline-flex; align-items: center; gap: .55em; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-accent); font-weight: 700; margin-bottom: var(--v-3); }
+  .sb__step i { width: .6em; height: .6em; border-radius: 50%; background: var(--grad); }
+  .sb__rep h3 { font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-xl); line-height: 1.1; margin-bottom: var(--v-3); }
+  .sb__rep p { color: var(--v-ink-soft); max-width: 44ch; }
+  .sb__after { grid-column: 1; grid-row: 3; }
+  .fan { grid-column: 2; grid-row: 1 / -1; position: relative; align-self: center; justify-self: center; width: min(100%, 64vh); aspect-ratio: 1 / 1; }
+  .fan__card { --k: clamp(0, calc((var(--v-p, 0) - var(--s)) / .3), 1); --w: clamp(0, calc((var(--v-p, 0) - .58) / .24), 1);
+    position: absolute; left: 22%; bottom: 8%; width: 56%; aspect-ratio: 4 / 3; transform-origin: 50% 260%;
+    border-radius: var(--v-radius); overflow: hidden; background: var(--v-surface); box-shadow: 0 24px 48px rgb(60 30 120 / .18), var(--v-edge);
+    transform: translateX(calc(var(--k) * var(--tx))) rotate(calc(var(--a0) * (1 - var(--k)) + var(--a1) * var(--k))) translateY(calc(var(--k) * -8% + var(--w) * 5%));
+    opacity: calc(1 - .55 * var(--w)); will-change: transform, opacity; }
+  .fan__card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fan__card figcaption { position: absolute; left: .8rem; bottom: .8rem; padding: .3em .8em; border-radius: 999px; background: rgb(255 255 255 / .92); font-size: var(--v-t-xs); font-weight: 700; color: var(--v-accent); opacity: calc(var(--k) * (1 - var(--w))); }
+  .fan__card--1 { --s: .04; --a0: 0deg; --a1: -9deg; --tx: -26%; z-index: 3; }
+  .fan__card--2 { --s: .14; --a0: 1deg; --a1: 0deg; --tx: 0%; z-index: 2; }
+  .fan__card--3 { --s: .24; --a0: -1deg; --a1: 9deg; --tx: 26%; z-index: 1; }
+  .fan__card--done { --k: 1; z-index: 4; transform-origin: 50% 50%; transform: translateY(calc((1 - var(--w)) * 14%)) scale(calc(.9 + .14 * var(--w))); opacity: var(--w); }
+  .fan__card--done figcaption { opacity: var(--w); background: var(--grad); color: #fff; }
+  @media (max-width: 900px) {
+    .sb { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr auto; row-gap: var(--v-3); padding: clamp(5rem, 11vh, 6rem) var(--v-gutter) clamp(1.5rem, 5vh, 3rem); }
+    .sb__head h2 { font-size: var(--v-t-xl); }
+    .fan { grid-column: 1; grid-row: 2; width: min(100%, 38vh); aspect-ratio: 4 / 3; }
+    .fan__card { bottom: 0; }
+    .fan__card figcaption { display: none; }
+    .sb__rep { grid-row: 3; align-self: start; min-height: 9rem; }
+    .sb__rep h3 { font-size: var(--v-t-lg); }
+    .sb__after { grid-row: 4; }
+  }
+
+  /* ---- 4. портфолио ---- */
+  .works { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--v-5); }
+  .work { position: relative; border-radius: var(--v-radius); overflow: hidden; aspect-ratio: 4 / 3; background: #efe7ff; box-shadow: var(--v-e1); }
+  .work img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--v-ease-out); }
+  .work:hover img { transform: scale(1.06); }
+  .work figcaption { position: absolute; inset: auto 0 0 0; padding: 3rem 1.2rem 1.1rem; background: linear-gradient(to top, rgb(26 21 48 / .82), rgb(26 21 48 / .35) 60%, transparent); color: #fff; }
+  .work figcaption span { font-size: var(--v-t-xs); font-weight: 700; letter-spacing: var(--v-track-wide); text-transform: uppercase; color: #e9d5ff; }
+  .work figcaption b { display: block; margin-top: .25rem; font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-base); }
+  @media (max-width: 960px) { .works { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .works { grid-template-columns: 1fr; } }
+
+  /* ---- 5. о студии ---- */
+  .about { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--v-9); align-items: center; }
+  .about h2 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3.2rem); margin-top: var(--v-3); }
+  .about p { color: var(--v-ink-soft); margin-top: var(--v-4); max-width: 56ch; }
+  .values { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-4); margin-top: var(--v-6); }
+  .values li { display: flex; gap: .9rem; align-items: center; padding: var(--v-4); border-radius: 16px; background: var(--v-surface); box-shadow: var(--v-e1); }
+  .values i { width: 2.6rem; height: 2.6rem; flex: none; border-radius: 12px; display: grid; place-items: center; background: #efe7ff; color: var(--v-accent); font-style: normal; font-size: 1.15rem; }
+  .values b { display: block; font-size: var(--v-t-sm); }
+  .values span { font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .about__pic { border-radius: calc(var(--v-radius) + 8px); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--v-e2); background: #efe7ff; }
+  .about__pic img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 900px) { .about { grid-template-columns: 1fr; gap: var(--v-6); } .about__pic { aspect-ratio: 4 / 3; } }
+  @media (max-width: 460px) { .values { grid-template-columns: 1fr; } }
+
+  /* ---- 6. заявка ---- */
+  .contact { border-radius: calc(var(--v-radius) + 12px); background: var(--grad); color: #fff; padding: clamp(2rem, 5vw, 4rem); display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-8); align-items: start; position: relative; overflow: hidden; box-shadow: var(--v-e2); }
+  .contact::before { content: ""; position: absolute; right: -10rem; top: -10rem; width: 30rem; height: 30rem; border-radius: 50%; background: radial-gradient(closest-side, rgb(255 255 255 / .16), transparent); pointer-events: none; }
+  .contact .eyebrow { color: #f5d0fe; }
+  .contact h2 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem); margin-top: var(--v-3); }
+  .contact > div > p { margin-top: var(--v-4); color: rgb(255 255 255 / .88); max-width: 40ch; }
+  .contact__list { display: grid; gap: var(--v-4); margin-top: var(--v-6); }
+  .contact__list li { display: flex; gap: .9rem; align-items: center; font-weight: 600; }
+  .contact__list i { width: 2.6rem; height: 2.6rem; flex: none; border-radius: 12px; display: grid; place-items: center; background: rgb(255 255 255 / .16); font-style: normal; }
+  .contact__list a { color: #fff; text-decoration: none; }
+  .contact__list a:hover { text-decoration: underline; }
+  .form { position: relative; background: var(--v-surface); color: var(--v-ink); border-radius: var(--v-radius); padding: clamp(1.4rem, 3vw, 2.2rem); display: grid; gap: var(--v-4); box-shadow: 0 30px 60px rgb(26 21 48 / .25); }
+  .form label { display: block; font-size: var(--v-t-sm); font-weight: 600; }
+  .form label > input, .form label > select, .form label > textarea { display: block; margin-top: .4rem; width: 100%; font: inherit; font-weight: 400; font-size: 1rem; color: var(--v-ink);
+    background: var(--v-canvas); border: 1px solid var(--v-hair-strong); border-radius: 12px; padding: .75rem .9rem; min-height: 48px; }
+  .form textarea { resize: vertical; min-height: 6.5rem; }
+  .form input:focus, .form select:focus, .form textarea:focus { outline: 2px solid var(--v-accent); outline-offset: 1px; border-color: transparent; }
+  .form .two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--v-4); }
+  .form .v-btn { justify-content: center; width: 100%; }
+  .form__note { font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  .form__done { display: none; text-align: center; padding: var(--v-6) 0; gap: var(--v-3); justify-items: center; }
+  .form.is-done > :not(.form__done) { display: none; }
+  .form.is-done .form__done { display: grid; }
+  .form__done i { width: 3.5rem; height: 3.5rem; border-radius: 50%; background: var(--grad); color: #fff; display: grid; place-items: center; font-style: normal; font-size: 1.6rem; }
+  .form__done h3 { font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-lg); }
+  .form__done p { color: var(--v-ink-soft); font-size: var(--v-t-sm); max-width: 34ch; }
+  @media (max-width: 900px) { .contact { grid-template-columns: 1fr; gap: var(--v-6); } }
+  @media (max-width: 460px) { .form .two { grid-template-columns: 1fr; } .contact { border-radius: var(--v-radius); } }
+
+  /* ---- подвал ---- */
+  .foot { padding: var(--v-8) 0 var(--v-6); }
+  .foot__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--v-6); padding-bottom: var(--v-6); border-bottom: 1px solid var(--v-hair); }
+  .foot__grid p { margin-top: var(--v-3); color: var(--v-ink-soft); font-size: var(--v-t-sm); max-width: 36ch; }
+  .foot h4 { margin: 0 0 var(--v-3); font-size: var(--v-t-sm); }
+  .foot ul { display: grid; gap: .4rem; font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+  .foot a { color: var(--v-ink-soft); text-decoration: none; }
+  .foot a:hover { color: var(--v-accent); }
+  .foot__copy { padding-top: var(--v-5); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+  @media (max-width: 760px) { .foot__grid { grid-template-columns: 1fr 1fr; } .foot__grid > :first-child { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+<div class="v-page">
+  <span data-v-progress></span>
+
+  <!-- Логотип: один символ на всю страницу -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d28d9"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
+      <symbol id="logo" viewBox="0 0 40 40">
+        <rect width="40" height="40" rx="11" fill="url(#logo-g)"/>
+        <path d="M11 9h5v8.6L24 9h6.2l-8.8 9.6L30.8 31h-6.3l-6.4-8-2.1 2.2V31h-5z" fill="#fff"/>
+        <path d="M32 4.5l1.2 3.1 3.1 1.2-3.1 1.2L32 13.1l-1.2-3.1-3.1-1.2 3.1-1.2z" fill="#fde68a"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="bar">
+    <a class="logo" href="#top" aria-label="КреоСтудия — на главную"><img src="assets/logo.png" alt="КреоСтудия" width="618" height="210"></a>
+    <nav aria-label="Разделы">
+      <a href="#uslugi">Услуги</a>
+      <a href="#raboty">Работы</a>
+      <a href="#o-studii">О студии</a>
+      <a href="#kontakty">Контакты</a>
+      <a class="v-btn" href="#kontakty">Оставить заявку</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- 1 · ПЕРВЫЙ ЭКРАН -->
+    <section class="hero" id="top" data-v-act="flow" data-v-drift="#faf8ff" aria-label="КреоСтудия — творческая студия">
+      <div class="v-wrap hero__grid">
+        <div data-v-in data-v-stagger="80">
+          <span class="pill"><i></i>Творческая студия</span>
+          <h1 class="v-display">Создаём контент, который <span class="grad-text">работает на вас</span></h1>
+          <p class="v-lede">Сайты, статьи, презентации, посты и картинки для соцсетей, логотипы, иллюстрации и фотосессии — всё в одном месте. КреоСтудия помогает брендам выглядеть ярко и продавать больше.</p>
+          <div class="hero__cta">
+            <a class="v-btn" href="#kontakty" data-v-magnet="0.2">Обсудить проект</a>
+            <a class="v-btn v-btn--ghost" href="#uslugi">Наши услуги</a>
+          </div>
+          <div class="stats">
+            <div><b><span data-v-count="0 150">150</span>+</b><span>выполненных проектов</span></div>
+            <div><b><span data-v-count="0 8">8</span></b><span>направлений услуг</span></div>
+            <div><b><span data-v-count="0 100">100</span>%</b><span>индивидуальный подход</span></div>
+          </div>
+        </div>
+        <div class="hero__pic" data-v-in data-v-in-self>
+          <figure data-v-tilt="4"><img src="assets/hero.jpg" alt="КреоСтудия — рабочее пространство" width="1598" height="1059" fetchpriority="high"></figure>
+          <div class="chip"><i aria-hidden="true">✦</i><div><b>Креатив и качество</b><span>в каждом проекте</span></div></div>
+          <div class="chip2">8 направлений · 1 команда</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · УСЛУГИ -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f6f2ff" id="uslugi" aria-label="Услуги">
+      <div class="v-wrap">
+        <div class="sec-head" data-v-in data-v-stagger="70">
+          <span class="eyebrow">Что мы делаем</span>
+          <h2 class="v-display">Услуги КреоСтудии</h2>
+          <p>Полный цикл контентного сопровождения вашего бренда — от идеи до готового результата.</p>
+        </div>
+        <div class="services" data-v-in data-v-stagger="60">
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_lckB4UPkNy.1152x864.png" alt="Создание сайтов" loading="lazy" width="1152" height="864"></figure><div><h3>Создание сайтов</h3><p>Современные сайты и лендинги, которые привлекают клиентов и продают.</p></div></article>
+          <article class="svc"><figure><img src="assets/svc-stati.jpg" alt="Статьи" loading="lazy" width="500" height="500"></figure><div><h3>Статьи</h3><p>Увлекательные и полезные тексты для блогов, СМИ и вашего сайта.</p></div></article>
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_DqCbiKbPFT.1152x864.png" alt="Презентации" loading="lazy" width="1152" height="864"></figure><div><h3>Презентации</h3><p>Яркие презентации, которые доносят идею и впечатляют аудиторию.</p></div></article>
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_3RFeBSEkgT.1152x864.png" alt="Посты для соцсетей" loading="lazy" width="1152" height="864"></figure><div><h3>Посты для соцсетей</h3><p>Контент-план и посты, которые вовлекают подписчиков.</p></div></article>
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_VkptNz86ue.1152x864.png" alt="Картинки для соцсетей" loading="lazy" width="1152" height="864"></figure><div><h3>Картинки для соцсетей</h3><p>Визуалы и баннеры, которые выделяют ваш бренд в ленте.</p></div></article>
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_ZBoJbVbNLi.1024x1024.png" alt="Логотипы" loading="lazy" width="1024" height="1024"></figure><div><h3>Логотипы</h3><p>Уникальные логотипы и фирменный стиль, запоминающиеся с первого взгляда.</p></div></article>
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_ZKavPJHKVr.1152x864.png" alt="Иллюстрации" loading="lazy" width="1152" height="864"></figure><div><h3>Иллюстрации</h3><p>Авторские иллюстрации для сайтов, упаковки и рекламы.</p></div></article>
+          <article class="svc"><figure><img src="https://fs.chatium.ru/get/image_msk_RQCXop1bBl.1024x1024.jpeg" alt="Нейрофотосессии" loading="lazy" width="1024" height="1024"></figure><div><h3>Нейрофотосессии</h3><p>Кинематографичные фотосессии: городской фон, вечерний свет и естественные пропорции человека.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · ОТ ИДЕИ ДО РЕЗУЛЬТАТА: веер карточек по прокрутке -->
+    <section data-v-act="pin" data-v-span="2.4" data-v-drift="#faf8ff" id="process" aria-label="От идеи до готового результата">
+      <div data-v-stage>
+        <div class="sb">
+          <div class="sb__head" data-v-cue="0 1 0 0" data-v-rise="0">
+            <span class="eyebrow">Как мы работаем</span>
+            <h2 class="v-display">От идеи до готового продукта</h2>
+          </div>
+          <div class="sb__rep">
+            <div data-v-cue="0 0.26 0 0.05">
+              <span class="sb__step"><i aria-hidden="true"></i>1 · Идея</span>
+              <h3>Разрабатываем концепцию</h3>
+              <p>Слышим клиента: разбираемся в задаче и предлагаем нестандартные идеи, которые отличат ваш бренд.</p>
+            </div>
+            <div data-v-cue="0.27 0.51 0.05 0.05">
+              <span class="sb__step"><i aria-hidden="true"></i>2 · Тексты</span>
+              <h3>Пишем слова, которые продают</h3>
+              <p>Статьи, тексты для сайта и посты для соцсетей — чтобы бизнес говорил с аудиторией на одном языке.</p>
+            </div>
+            <div data-v-cue="0.52 0.76 0.05 0.05">
+              <span class="sb__step"><i aria-hidden="true"></i>3 · Дизайн и фото</span>
+              <h3>Создаём визуал</h3>
+              <p>Логотипы, иллюстрации, картинки для соцсетей и нейрофотосессии в едином стиле.</p>
+            </div>
+            <div data-v-cue="0.77 1 0.05 0">
+              <span class="sb__step"><i aria-hidden="true"></i>4 · Результат</span>
+              <h3>Доводим до совершенства</h3>
+              <p>Собираем всё в готовый продукт — сайт, презентацию или контент-план — и сдаём вовремя.</p>
+            </div>
+          </div>
+          <div class="fan" aria-hidden="true">
+            <figure class="fan__card fan__card--3"><img src="https://fs.chatium.ru/get/image_msk_ZBoJbVbNLi.1024x1024.png" alt="" loading="lazy"><figcaption>Дизайн</figcaption></figure>
+            <figure class="fan__card fan__card--2"><img src="assets/svc-stati.jpg" alt="" loading="lazy"><figcaption>Тексты</figcaption></figure>
+            <figure class="fan__card fan__card--1"><img src="https://fs.chatium.ru/get/image_msk_DqCbiKbPFT.1152x864.png" alt="" loading="lazy"><figcaption>Идея</figcaption></figure>
+            <figure class="fan__card fan__card--done"><img src="https://fs.chatium.ru/get/image_msk_lckB4UPkNy.1152x864.png" alt="" loading="lazy"><figcaption>Готовый сайт</figcaption></figure>
+          </div>
+          <div class="sb__after" data-v-cue="0.78 1 0.06 0">
+            <a class="v-btn" href="#kontakty">Обсудить проект</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · ПОРТФОЛИО -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f6f2ff" id="raboty" aria-label="Портфолио">
+      <div class="v-wrap">
+        <div class="sec-head" data-v-in data-v-stagger="70">
+          <span class="eyebrow">Портфолио</span>
+          <h2 class="v-display">Наши работы</h2>
+          <p>Несколько примеров того, что мы создаём для наших клиентов.</p>
+        </div>
+        <div class="works" data-v-in data-v-stagger="70">
+          <figure class="work"><img src="assets/work-syrovarnya.jpg" alt="Логотип сыроварни «Фермерские сыры»" loading="lazy"><figcaption><span>Логотип</span><b>Сыроварня «Фермерские сыры»</b></figcaption></figure>
+          <figure class="work"><img src="assets/work-keycomfort.jpg" alt="Логотип KeyComfort – посуточная аренда" loading="lazy"><figcaption><span>Логотип</span><b>KeyComfort – посуточная аренда</b></figcaption></figure>
+          <figure class="work"><img src="assets/work-aleks.webp" alt="Логотип «Алекс»" loading="lazy"><figcaption><span>Логотип</span><b>Логотип «Алекс»</b></figcaption></figure>
+          <figure class="work"><img src="assets/ill-vsadnik.jpg" alt="Иллюстрация: Всадник в облаках" loading="lazy"><figcaption><span>Иллюстрация</span><b>Всадник в облаках</b></figcaption></figure>
+          <figure class="work"><img src="assets/ill-vesna.jpg" alt="Иллюстрация: Весенний пейзаж" loading="lazy"><figcaption><span>Иллюстрация</span><b>Весенний пейзаж</b></figcaption></figure>
+          <figure class="work"><img src="assets/ill-kartina-maslom.jpg" alt="Иллюстрация: «Картина маслом»" loading="lazy"><figcaption><span>Иллюстрация</span><b>«Картина маслом»</b></figcaption></figure>
+          <figure class="work"><img src="assets/ill-dom-budushchego.jpg" alt="Иллюстрация: Дом будущего" loading="lazy"><figcaption><span>Иллюстрация</span><b>Дом будущего</b></figcaption></figure>
+          <figure class="work"><img src="assets/photo-london.jpg" alt="Нейрофотосессия: Прогулка по Лондону" loading="lazy" style="object-position: 50% 30%"><figcaption><span>Нейрофотосессия</span><b>Прогулка по Лондону</b></figcaption></figure>
+          <figure class="work"><img src="assets/photo-restoran.jpg" alt="Нейрофотосессия: Вечер в ресторане" loading="lazy" style="object-position: 50% 35%"><figcaption><span>Нейрофотосессия</span><b>Вечер в ресторане</b></figcaption></figure>
+          <figure class="work"><img src="assets/photo-rycar.jpg" alt="Нейрофотосессия: Рыцарь под дождём" loading="lazy" style="object-position: 50% 30%"><figcaption><span>Нейрофотосессия</span><b>Рыцарь под дождём</b></figcaption></figure>
+          <figure class="work"><img src="assets/photo-zima.jpg" alt="Нейрофотосессия: Зимний портрет" loading="lazy" style="object-position: 50% 30%"><figcaption><span>Нейрофотосессия</span><b>Зимний портрет</b></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · О СТУДИИ -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#faf8ff" id="o-studii" aria-label="О студии">
+      <div class="v-wrap about">
+        <div data-v-in data-v-stagger="70">
+          <span class="eyebrow">О студии</span>
+          <h2 class="v-display">КреоСтудия — ваша команда креатива</h2>
+          <p>Мы — творческая студия, которая помогает брендам и предпринимателям выглядеть ярко и уверенно. Объединяем дизайн, тексты и фотографию, чтобы ваш бизнес говорил с аудиторией на одном языке.</p>
+          <p>От идеи до готового продукта — берём на себя весь процесс: разрабатываем концепцию, создаём контент и доводим результат до совершенства.</p>
+          <ul class="values">
+            <li><i aria-hidden="true">✦</i><div><b>Креатив</b><span>Нестандартные идеи</span></div></li>
+            <li><i aria-hidden="true">◆</i><div><b>Качество</b><span>Высокий стандарт</span></div></li>
+            <li><i aria-hidden="true">◷</i><div><b>Сроки</b><span>Сдаём вовремя</span></div></li>
+            <li><i aria-hidden="true">❤</i><div><b>Подход</b><span>Слышим клиента</span></div></li>
+          </ul>
+        </div>
+        <figure class="about__pic" data-v-reveal="up" data-v-reveal-at="0.1 0.45"><img src="assets/about.jpg" alt="О КреоСтудии" loading="lazy"></figure>
+      </div>
+    </section>
+
+    <!-- 6 · ЗАЯВКА -->
+    <section class="v-section" data-v-act="flow" data-v-drift="#f6f2ff" id="kontakty" data-v-spotlight aria-label="Оставить заявку">
+      <div class="v-wrap">
+        <div class="contact" data-v-in data-v-stagger="80">
+          <div>
+            <span class="eyebrow">Оставить заявку</span>
+            <h2 class="v-display">Обсудим ваш проект</h2>
+            <p>Расскажите, что вам нужно — сайт, тексты, дизайн или фотосессия. Мы свяжемся с вами и предложим решение.</p>
+            <ul class="contact__list">
+              <li><i aria-hidden="true">✉</i><a href="mailto:vasenkin.a@yandex.ru">vasenkin.a@yandex.ru</a></li>
+              <li><i aria-hidden="true">☎</i><a href="tel:+79172822648">+7 917 282-26-48</a></li>
+              <li><i aria-hidden="true">⌖</i><span>Работаем по всей России, онлайн</span></li>
+            </ul>
+          </div>
+          <form class="form" novalidate>
+            <div class="two">
+              <label>Ваше имя *<input name="name" autocomplete="name" required placeholder="Иван"></label>
+              <label>Телефон *<input name="phone" type="tel" autocomplete="tel" required placeholder="+7 (___) ___-__-__"></label>
+            </div>
+            <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+            <label>Услуга
+              <select name="service">
+                <option value="">Выберите услугу</option>
+                <option>Создание сайта</option><option>Статья</option><option>Презентация</option><option>Посты для соцсетей</option>
+                <option>Картинки для соцсетей</option><option>Логотип</option><option>Иллюстрация</option><option>Фотосессия</option><option>Другое</option>
+              </select>
+            </label>
+            <label>Опишите задачу<textarea name="task" rows="4" placeholder="Расскажите о вашем проекте..."></textarea></label>
+            <button type="submit" class="v-btn">Отправить заявку</button>
+            <p class="form__note">Заявка откроется в вашей почте готовым письмом на vasenkin.a@yandex.ru — останется нажать «Отправить».</p>
+            <div class="form__done" role="status">
+              <i aria-hidden="true">✓</i>
+              <h3>Письмо готово</h3>
+              <p>Мы открыли почту с текстом заявки — нажмите там «Отправить». Если почта не открылась, позвоните: <a href="tel:+79172822648">+7 917 282-26-48</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="v-wrap">
+      <div class="foot__grid">
+        <div>
+          <a class="logo" href="#top"><img src="assets/logo.png" alt="КреоСтудия" width="618" height="210"></a>
+          <p>Сайты, тексты, дизайн и фотосессии. Создаём контент, который работает на ваш бренд.</p>
+        </div>
+        <div>
+          <h4>Услуги</h4>
+          <ul><li><a href="#uslugi">Создание сайтов</a></li><li><a href="#uslugi">Статьи</a></li><li><a href="#uslugi">Презентации</a></li><li><a href="#uslugi">Посты и картинки для соцсетей</a></li><li><a href="#uslugi">Логотипы</a></li><li><a href="#uslugi">Иллюстрации</a></li><li><a href="#uslugi">Фотосессии</a></li></ul>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <ul><li><a href="mailto:vasenkin.a@yandex.ru">vasenkin.a@yandex.ru</a></li><li><a href="tel:+79172822648">+7 917 282-26-48</a></li><li>Работаем по всей России, онлайн</li></ul>
+        </div>
+      </div>
+      <p class="foot__copy">© 2026 КреоСтудия. Все права защищены.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="vibe.js"></script>
+<script>
+  if (window.matchMedia('(max-width: 900px)').matches) document.getElementById('process').setAttribute('data-v-span', '2.1');
+  Vibe.mount(document.querySelector('.v-page'));
+
+  (function () {
+    var bar = document.querySelector('.bar'), on = null;
+    function tick() { var s = window.scrollY > 40; if (s !== on) { on = s; bar.classList.toggle('is-scrolled', s); } }
+    window.addEventListener('scroll', tick, { passive: true }); tick();
+  })();
+
+  // Заявка: сервера нет, поэтому собираем готовое письмо на почту студии.
+  (function () {
+    var form = document.querySelector('.form'), to = 'vasenkin.a@yandex.ru';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ph = form.elements.phone, digits = ph.value.replace(/\D/g, '').length;
+      ph.setCustomValidity(ph.value && (digits < 10 || digits > 12) ? 'Проверьте номер: нужно 10–11 цифр' : '');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var v = function (n) { return form.elements[n].value.trim(); };
+      var body = [
+        'Имя: ' + v('name'),
+        'Телефон: ' + v('phone'),
+        v('email') && 'Email: ' + v('email'),
+        'Услуга: ' + (v('service') || 'не выбрана'),
+        v('task') && '\nЗадача:\n' + v('task')
+      ].filter(Boolean).join('\n');
+      var subject = 'Заявка с сайта: ' + (v('service') || 'новый проект');
+      location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      form.classList.add('is-done');
+    });
+  })();
+</script>
+</body>
+</html>
